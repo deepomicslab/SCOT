@@ -67,8 +67,8 @@ We put the complete scripts for the analysis described in the manuscript under `
 > + ```n_epochs```: The number of optimization epochs (default=1000).
 > + ```lambda_C_regularizer```: The coefficient for the penalty term of global cell embeddings (default=0.01).
 > + ```lambda_G_regularizer```: The coefficient for the penalty term of global gene embeddings (default=0.01).
-> + ```lambda_O_regularizer```: The coefficient list for the penalty term of global omics embeddings, the length of the list should be the same with the number of omics (default=[0.01, 0.01]).
-> + ```lambda_OC_regularizer```: The coefficient list for the penalty term of omics-specific cell embeddings, the length of the list should be the same with the number of omics, not avaiable for complete functions (default=[1, 1]).
+> + ```lambda_O_regularizer```: The coefficient list for the penalty term of global omics embeddings; the length of the list should be the same with the number of omics (default=[0.01, 0.01]).
+> + ```lambda_OC_regularizer```: The coefficient list for the penalty term of omics-specific cell embeddings; the length of the list should be the same with the number of omics, not avaiable for complete functions (default=[1, 1]).
 > + ```lambda_OG_regularizer```: The coefficient list for the penalty term of omics-specific gene embeddings, the length of the list should be the same with the number of omics, not avaiable for list functions (default=[1, 1]).
 > + ```batch_size```: The batch size used for gradient descent, not avaiable for complete functions (default=1000).
 > + ```device```: CPU or GPU (default='cuda' if torch.cuda.is_available() else 'cpu').
