@@ -54,5 +54,27 @@ predict_data = sc_model.fit_list_complete(data)
 We put the complete scripts for the analysis described in the manuscript under ```examples/``` directory for detailed usage examples and reproduction. The example data can be downloaded from [Google Drive](https://drive.google.com/drive/folders/1F_WBwNsHggjTqgFfTm6IugNKpb0xJTje?usp=sharing).
 
 ## Parameters
+###  ```sc_multi_omics```
+> + ```K1```: The local element-wise product parameter, see the manuscript for details (default=20).
+> + ```K2```: The local element-wise product parameter (default=20).
+> + ```K3```: The local element-wise product parameter (default=20).
+> + ```random_seed```: The random seed used in optimization (default=111).
+
+###  ```fit```
+> + ```opt```: The optimization algorithm for gradient descent, including SGD, Adam, Adadelta, Adagrad, AdamW, SparseAdam, Adamax, ASGD, LBFGS (default="Adam").
+> + ```dist```:The distribution used for modeling, including gaussian, poisson, negative_bionomial (default="gaussian").
+> + ```lr```: The learning rate for gradient descent (default=1e-2).
+> + ```n_epochs```: The number of optimization epochs (default=1000).
+> + ```lambda_C_regularizer```: The coefficient for the penalty term of global cell embeddings (default=0.01).
+> + ```lambda_G_regularizer```: The coefficient for the penalty term of global gene embeddings (default=0.01).
+> + ```lambda_O_regularizer```: The coefficient list for the penalty term of global omics embeddings, the length of the list should be the same with the number of omics (default=[0.01, 0.01]).
+> + ```lambda_OC_regularizer```: The coefficient list for the penalty term of omics-specific cell embeddings, the length of the list should be the same with the number of omics, not avaiable for complete functions (default=[1, 1]).
+> + ```lambda_OG_regularizer```: The coefficient list for the penalty term of omics-specific gene embeddings, the length of the list should be the same with the number of omics, not avaiable for list functions (default=[1, 1]).
+> + ```batch_size```: The batch size used for gradient descent, not avaiable for complete functions (default=1000).
+> + ```device```: CPU or GPU (default='cuda' if torch.cuda.is_available() else 'cpu').
+> + ```verbose```: Whether to print loss for each epoch (default=True).
+
+### Maintainer
+WANG Ruohan ruohawang2-c@my.cityu.edu.hk
 
 
