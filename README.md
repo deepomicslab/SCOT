@@ -15,25 +15,40 @@ pip install Tensor-SC
 ```
 
 ## Examples
-This is the example for the multiple datasets when features have corresponding information.
+This is an example for the multiple datasets when features have corresponding information.
 ```Python
 from tensorsc import sc_multi_omics
 
 data = np.array([expression_data, methylation_data])
-sc_model = sc_multi_omics(K1=30, K2=30, K3=30)
+sc_model = sc_multi_omics()
 predict_data = sc_model.fit(data) # the imputed data
 np.savetxt("global_cell_embeddings.csv", sc_model.C, delimiter = ',') # global cell embeddings
 np.savetxt("global_gene_embeddings.csv", sc_model.G, delimiter = ',') # global gene embeddings
 np.savetxt("local_cell_embeddings.csv", sc_model.C, delimiter = ',') # omics-specific cell embeddings
 np.savetxt("local_gene_embeddings.csv", sc_model.G, delimiter = ',') # omics-specific gene embeddings
 ```
-When the features among different omics do not have corresponding information, please use ```fit_list``` function, which accepts the input as a list of matrices.
+When the features of different omics do not have corresponding information, please use ```fit_list``` function, which accepts the input as a list of matrices.
 ```Python
 from tensorsc import sc_multi_omics
 
 data = [expression_data, protein_data]
-sc_model = sc_multi_omics(K1=30, K2=30, K3=30)
+sc_model = sc_multi_omics()
 predict_data = sc_model.fit_list(data)
+```
+If the input does not contain missing values ("NA"), we provide ```fit_complete``` and ```fit_list_complete``` functions to accelerate the optimization, since they take the advantages of matrix operations.
+```Python
+from tensorsc import sc_multi_omics
+
+data = np.array([expression_data, methylation_data])
+sc_model = sc_multi_omics()
+predict_data = sc_model.fit_complete(data) # the imputed data
+```
+```Python
+from tensorsc import sc_multi_omics
+
+data = [expression_data, protein_data]
+sc_model = sc_multi_omics()
+predict_data = sc_model.fit_list_complete(data)
 ```
 
 The example data can be downloaded from [Google Drive](https://drive.google.com/drive/folders/1F_WBwNsHggjTqgFfTm6IugNKpb0xJTje?usp=sharing).
