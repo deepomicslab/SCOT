@@ -51,12 +51,7 @@ sc_model = sc_multi_omics()
 predict_data = sc_model.fit_list_complete(data)
 ```
 
-The example data can be downloaded from [Google Drive](https://drive.google.com/drive/folders/1F_WBwNsHggjTqgFfTm6IugNKpb0xJTje?usp=sharing).
-
-
-
-
-
+We put the complete scripts for analysis described in the manuscript under ```examples/``` directory, for detailed usage examples and the reproduction. The example data can be downloaded from [Google Drive](https://drive.google.com/drive/folders/1F_WBwNsHggjTqgFfTm6IugNKpb0xJTje?usp=sharing).
 
 ## Parameters
 
