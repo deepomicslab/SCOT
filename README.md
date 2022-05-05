@@ -1,7 +1,7 @@
-# Tensor-SC
-Tensor-SC is an implementation of a probabilistic tensor decomposition framework for single-cell multi-omics data integration. Tensor-SC accepts the input of datasets from multiple omics, with missing values allowed.
+# SCOT
+SCOT is an implementation of a probabilistic tensor decomposition framework for single-cell multi-omics data integration. SCOT accepts the input of datasets from multiple omics, with missing values allowed.
 
-![image](https://github.com/deepomicslab/Tensor-SC/blob/main/framework.png)
+![image](https://github.com/deepomicslab/SCOT/blob/main/framework.png)
 
 # Getting started
 
@@ -11,13 +11,13 @@ Tensor-SC is an implementation of a probabilistic tensor decomposition framework
 
 ## Install
 ```
-pip install Tensor-SC
+pip install SCOT-bio
 ```
 
 ## Examples
 This is an example of multiple datasets when features have corresponding information.
 ```Python
-from tensorsc import sc_multi_omics
+from scot import sc_multi_omics
 
 data = np.array([expression_data, methylation_data])
 sc_model = sc_multi_omics()
@@ -29,7 +29,7 @@ np.savetxt("local_gene_embeddings.csv", sc_model.G, delimiter = ',') # omics-spe
 ```
 When the features of different omics do not have corresponding information, please use the ```fit_list``` function, which accepts the input as a list of matrices.
 ```Python
-from tensorsc import sc_multi_omics
+from scot import sc_multi_omics
 
 data = [expression_data, protein_data]
 sc_model = sc_multi_omics()
@@ -37,14 +37,14 @@ predict_data = sc_model.fit_list(data)
 ```
 If the input does not contain missing values ("NA"), we provide ```fit_complete``` and ```fit_list_complete``` functions to accelerate the optimization since they take advantage of matrix operations.
 ```Python
-from tensorsc import sc_multi_omics
+from scot import sc_multi_omics
 
 data = np.array([expression_data, methylation_data])
 sc_model = sc_multi_omics()
 predict_data = sc_model.fit_complete(data) # the imputed data
 ```
 ```Python
-from tensorsc import sc_multi_omics
+from scot import sc_multi_omics
 
 data = [expression_data, protein_data]
 sc_model = sc_multi_omics()
